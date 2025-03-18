@@ -27,7 +27,7 @@ function Home() {
         if (!confirmDelete) return;
 
         try {
-            const response = await fetch('http://localhost:8080/auth/delete-account', {
+            const response = await fetch('https://auth-mern-app-delta.vercel.app/auth/delete-account', {
                 method: 'DELETE',
                 headers: {
                     'Authorization': localStorage.getItem('token')
@@ -57,7 +57,7 @@ function Home() {
         }
 
         try {
-            const response = await fetch('http://localhost:8080/auth/change-username', {
+            const response = await fetch('https://auth-mern-app-delta.vercel.app/auth/change-username', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -82,7 +82,7 @@ function Home() {
 
     const fetchProducts = async () => {
         try {
-            const url = "http://localhost:8080/products";
+            const url = "https://auth-mern-app-delta.vercel.app/products";
             const response = await fetch(url, {
                 headers: {
                     'Authorization': localStorage.getItem('token')
