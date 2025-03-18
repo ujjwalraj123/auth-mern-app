@@ -27,7 +27,7 @@ function Home() {
         if (!confirmDelete) return;
 
         try {
-            const response = await fetch('https://auth-mern-1nvpq2abk-ujjwal-rajs-projects-a7446681.vercel.app/auth/delete-account', {
+            const response = await fetch('https://auth-mern-app-delta.vercel.app/auth/delete-account', {
                 method: 'DELETE',
                 headers: {
                     'Authorization': localStorage.getItem('token')
