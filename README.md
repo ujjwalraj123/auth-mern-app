@@ -12,6 +12,8 @@ A full-stack authentication system built with MERN stack (MongoDB, Express, Reac
 
 - User Registration with email verification
 - Secure Login/Logout functionality
+- Delete Account
+- Change Username
 - JWT-based authentication
 - Protected routes
 - Toast notifications
