@@ -57,7 +57,7 @@ function Home() {
         }
 
         try {
-            const response = await fetch('https://auth-mern-1nvpq2abk-ujjwal-rajs-projects-a7446681.vercel.app/auth/change-username', {
+            const response = await fetch('https://auth-mern-app-delta.vercel.app/auth/change-username', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -82,7 +82,7 @@ function Home() {
 
     const fetchProducts = async () => {
         try {
-            const url = "https://auth-mern-1nvpq2abk-ujjwal-rajs-projects-a7446681.vercel.app/products";
+            const url = "https://auth-mern-app-delta.vercel.app/products";
             const response = await fetch(url, {
                 headers: {
                     'Authorization': localStorage.getItem('token')
