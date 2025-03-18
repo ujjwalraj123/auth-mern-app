@@ -3,7 +3,7 @@
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Click%20Here-brightgreen)](https://auth-mern-app-rmhb.vercel.app/login)
 
 ## Demo
--[Download Demo Video](https://github.com/ujjwalraj123/auth-mern-app/raw/main/Demo/Module_4_Demo_video.mp4)
+- [Download Demo Video](https://github.com/ujjwalraj123/auth-mern-app/raw/main/Demo/Module_4_Demo_video.mp4)
 - **Database Screenshot**:  
   ![Demo Database](https://raw.githubusercontent.com/ujjwalraj123/auth-mern-app/main/Demo/Demo-DB.png)
 
