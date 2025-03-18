@@ -1,9 +1,19 @@
-const { signup, login } = require('../Controllers/AuthController');
-const { signupValidation, loginValidation } = require('../Middlewares/AuthValidation');
+const express = require('express');
+const router = express.Router();
+const { 
+    signup, 
+    login, 
+    deleteAccount, 
+    changeUsername 
+} = require('../Controllers/AuthController');
+const ensureAuthenticated = require('../Middlewares/Auth');
 
-const router = require('express').Router();
+// Existing routes
+router.post('/signup', signup);
+router.post('/login', login);
 
-router.post('/login', loginValidation, login);
-router.post('/signup', signupValidation, signup);
+// New protected routes
+router.delete('/delete-account', ensureAuthenticated, deleteAccount);
+router.put('/change-username', ensureAuthenticated, changeUsername);
 
 module.exports = router;

@@ -70,3 +70,63 @@ button{
   cursor: pointer;
   margin: 10px 0;
 }
+/* Home Page Styles */
+.home-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.account-actions {
+  margin: 30px 0;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.username-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.username-form input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.update-btn {
+  background: #2c974b;
+  padding: 8px 16px;
+}
+
+.delete-btn {
+  background: #dc3545;
+  padding: 8px 16px;
+}
+
+.logout-btn {
+  background: #6c757d;
+  padding: 8px 16px;
+}
+
+.products-list {
+  margin-top: 30px;
+}
+
+.product-item {
+  padding: 10px;
+  margin: 5px 0;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}

@@ -6,56 +6,141 @@ import { ToastContainer } from 'react-toastify';
 function Home() {
     const [loggedInUser, setLoggedInUser] = useState('');
     const [products, setProducts] = useState('');
+    const [newUsername, setNewUsername] = useState('');
     const navigate = useNavigate();
+
     useEffect(() => {
-        setLoggedInUser(localStorage.getItem('loggedInUser'))
+        setLoggedInUser(localStorage.getItem('loggedInUser'));
     }, [])
 
     const handleLogout = (e) => {
         localStorage.removeItem('token');
         localStorage.removeItem('loggedInUser');
-        handleSuccess('User Loggedout');
+        handleSuccess('User Logged out');
         setTimeout(() => {
             navigate('/login');
         }, 1000)
     }
 
-    const fetchProducts = async () => {
+    const handleDeleteAccount = async () => {
+        const confirmDelete = window.confirm('Are you sure you want to permanently delete your account? This action cannot be undone!');
+        if (!confirmDelete) return;
+
         try {
-            const url = "https://auth-mern-app-delta.vercel.app/products";
-            const headers = {
+            const response = await fetch('http://localhost:8080/auth/delete-account', {
+                method: 'DELETE',
                 headers: {
                     'Authorization': localStorage.getItem('token')
                 }
-            }
-            const response = await fetch(url, headers);
+            });
+            
             const result = await response.json();
-            console.log(result);
+            if (result.success) {
+                handleSuccess(result.message);
+                localStorage.removeItem('token');
+                localStorage.removeItem('loggedInUser');
+                setTimeout(() => {
+                    navigate('/login');
+                }, 1500);
+            } else {
+                handleError(result.message);
+            }
+        } catch (err) {
+            handleError(err.message);
+        }
+    }
+
+    const handleUsernameChange = async (e) => {
+        e.preventDefault();
+        if (!newUsername.trim()) {
+            return handleError('Please enter a valid username');
+        }
+
+        try {
+            const response = await fetch('http://localhost:8080/auth/change-username', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': localStorage.getItem('token')
+                },
+                body: JSON.stringify({ newName: newUsername })
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                handleSuccess(result.message);
+                localStorage.setItem('loggedInUser', result.newName);
+                setLoggedInUser(result.newName);
+                setNewUsername('');
+            } else {
+                handleError(result.message);
+            }
+        } catch (err) {
+            handleError(err.message);
+        }
+    }
+
+    const fetchProducts = async () => {
+        try {
+            const url = "http://localhost:8080/products";
+            const response = await fetch(url, {
+                headers: {
+                    'Authorization': localStorage.getItem('token')
+                }
+            });
+            const result = await response.json();
             setProducts(result);
         } catch (err) {
             handleError(err);
         }
     }
+
     useEffect(() => {
         fetchProducts()
     }, [])
 
     return (
-        <div>
+        <div className="home-container">
             <h1>Welcome {loggedInUser}</h1>
-            <button onClick={handleLogout}>Logout</button>
-            <div>
-                {
-                    products && products?.map((item, index) => (
-                        <ul key={index}>
-                            <span>{item.name} : {item.price}</span>
-                        </ul>
-                    ))
-                }
+            
+            <div className="account-actions">
+                <form onSubmit={handleUsernameChange} className="username-form">
+                    <input
+                        type="text"
+                        placeholder="Enter new username"
+                        value={newUsername}
+                        onChange={(e) => setNewUsername(e.target.value)}
+                    />
+                    <button type="submit" className="update-btn">
+                        Update Username
+                    </button>
+                </form>
+
+                <div className="action-buttons">
+                    <button 
+                        onClick={handleDeleteAccount}
+                        className="delete-btn"
+                    >
+                        Delete Account
+                    </button>
+                    <button onClick={handleLogout} className="logout-btn">
+                        Logout
+                    </button>
+                </div>
             </div>
+
+            <div className="products-list">
+                <h2>Products</h2>
+                {products && products?.map((item, index) => (
+                    <div key={index} className="product-item">
+                        <span>{item.name}: ₹{item.price}</span>
+                    </div>
+                ))}
+            </div>
+
             <ToastContainer />
         </div>
     )
 }
 
-export default Home 
+export default Home

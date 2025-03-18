@@ -66,7 +66,59 @@ const login = async (req, res) => {
     }
 }
 
+// Add these new controller functions at the bottom before module.exports
+
+const deleteAccount = async (req, res) => {
+    try {
+        const userId = req.user._id;
+        await UserModel.findByIdAndDelete(userId);
+        res.status(200).json({
+            message: "Account deleted successfully",
+            success: true
+        });
+    } catch (err) {
+        res.status(500).json({
+            message: "Internal server error",
+            success: false
+        });
+    }
+}
+
+const changeUsername = async (req, res) => {
+    try {
+        const userId = req.user._id;
+        const { newName } = req.body;
+        
+        if (!newName) {
+            return res.status(400).json({
+                message: "New name is required",
+                success: false
+            });
+        }
+
+        const updatedUser = await UserModel.findByIdAndUpdate(
+            userId,
+            { name: newName },
+            { new: true }
+        );
+
+        res.status(200).json({
+            message: "Username updated successfully",
+            success: true,
+            newName: updatedUser.name
+        });
+    } catch (err) {
+        res.status(500).json({
+            message: "Internal server error",
+            success: false
+        });
+    }
+}
+
+// Update exports
 module.exports = {
     signup,
-    login
+    login,
+    deleteAccount,
+    changeUsername
 }
