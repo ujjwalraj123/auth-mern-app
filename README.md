@@ -6,7 +6,7 @@
 - [Download Demo Video](https://github.com/ujjwalraj123/auth-mern-app/raw/main/Demo/Module_4_Demo_video.mp4)
 
 
-A full-stack authentication system built with MERN stack (MongoDB, Express, React, Node.js) featuring secure user registration, login, password reset, and email verification functionality.
+A full-stack authentication system built with MERN stack (MongoDB, Express, React, Node.js) featuring secure user registration, login, password reset, Account deletion, Change username  functionality.
 
 ## Features ✨
 
