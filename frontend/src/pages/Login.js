@@ -34,7 +34,7 @@ function Login() {
             return handleError('email and password are required')
         }
         try {
-            const url = `https://auth-mern-app-delta.vercel.app/auth/login`;
+            const url = `https://auth-mern-app-1p4n.onrender.com/auth/login`;
             const response = await fetch(url, {
                 method: "POST",
                 headers: {
