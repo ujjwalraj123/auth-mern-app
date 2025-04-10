@@ -1,52 +1,44 @@
-# MERN Authentication Application 🔐
-
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Click%20Here-brightgreen)](https://auth-mern-app-rmhb.vercel.app/login)
-
-## Demo
-- [Download Demo Video](https://github.com/ujjwalraj123/auth-mern-app/raw/main/Demo/Module_4_Demo_video.mp4)
+# MERN Authentication & Task Management App
 
 
-A full-stack authentication system built with MERN stack (MongoDB, Express, React, Node.js) featuring secure user registration, login, password reset, Account deletion, Change username  functionality.
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Online-green)](https://auth-mern-app-rmhb.vercel.app/)
 
-## Features ✨
+A full-stack MERN application with user authentication and task management features.
 
-- User Registration with email verification
-- Secure Login/Logout functionality
-- Delete Account
-- Change Username
-- JWT-based authentication
-- Protected routes
-- Toast notifications
-- Responsive UI
-- Role-based access control (User/Admin)
-- Password strength validation
-- Session management
-- Error handling middleware
+## 🔗 Demo Links
+- **Live Application:** https://auth-mern-app-rmhb.vercel.app/
+- **Backend API:** https://auth-mern-app-1p4n.onrender.com
 
-## Technologies Used 🛠️
+## ✨ Features
+- User Authentication (Signup/Login)
+- JWT-based Authorization
+- Task Management (Create/Read/Update/Delete)
+- Mark Tasks as Complete/Incomplete
+- Dark/Light Mode Toggle
+- Account Management:
+  - Update Username
+  - Delete Account
+- Responsive UI with Toast Notifications
+- Persistent Theme Preference
 
-- **Frontend**:
+## 🛠 Tech Stack
+- **Frontend:** 
   - React.js
   - React Router
-  - Axios
-  - Tailwind CSS
-
-- **Backend**:
+  - React Toastify
+  - CSS3
+- **Backend:** 
   - Node.js
   - Express.js
-  - MongoDB (with Mongoose)
-  - JSON Web Tokens (JWT)
-  - Bcrypt for password hashing
-  - Nodemailer for email services
+  - MongoDB
+  - Mongoose
+  - JWT
+- **Hosting:**
+  - Render (Backend)
+  - Vercel (Frontend)
 
-- **Deployment**:
-  - Frontend: Vercel
-  - Backend: Vercel
-  - Database: MongoDB Atlas
-
-## Installation 🛠️
-
-1. **Clone the repository**
+## 🚀 Installation
+1. Clone the repository
 ```bash
 git clone https://github.com/ujjwalraj123/auth-mern-app.git
 cd auth-mern-app
