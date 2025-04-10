@@ -9,9 +9,17 @@ function Signup() {
         name: '',
         email: '',
         password: ''
-    })
+    });
+
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+    const toggleTheme = () => {
+        setIsDarkMode(!isDarkMode);
+        document.body.classList.toggle('dark-mode', !isDarkMode);
+    };
 
     const navigate = useNavigate();
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         console.log(name, value);
@@ -27,7 +35,7 @@ function Signup() {
             return handleError('name, email and password are required')
         }
         try {
-            const url = `https://auth-mern-app-delta.vercel.app/auth/signup`;
+            const url = `http://localhost:8080/auth/signup`;
             const response = await fetch(url, {
                 method: "POST",
                 headers: {
@@ -53,8 +61,17 @@ function Signup() {
             handleError(err);
         }
     }
+
     return (
         <div className='container'>
+            <button 
+                onClick={toggleTheme} 
+                className="theme-toggle"
+                style={{ position: 'absolute', top: '20px', right: '20px' }}
+            >
+                {isDarkMode ? '🌞' : '🌙'}
+            </button>
+
             <h1>Signup</h1>
             <form onSubmit={handleSignup}>
                 <div>
@@ -89,9 +106,7 @@ function Signup() {
                     />
                 </div>
                 <button type='submit'>Signup</button>
-                <span>Already have an account ?
-                    <Link to="/login">Login</Link>
-                </span>
+                <span>Already have an account? <Link to="/login">Login</Link></span>
             </form>
             <ToastContainer />
         </div>

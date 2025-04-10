@@ -1,132 +1,269 @@
-
+/* Reset and Base Styles */
 *,
 ::before,
-::after{
+::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-label{
-  font-size: 20px;
-}
-
 html,
-body{
+body {
   height: 100%;
   width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  color: #2d3748;
 }
 
-body{
+body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 2rem;
 }
 
-.container{
-  background-color: #FFF;
-  padding: 32px 48px;
-  border-radius: 10px;
-  width: 100%;
+/* Container Styles */
+.container {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   max-width: 400px;
-  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-}
-
-.container > h1{
-  margin-bottom: 20px;
-}
-
-.container > form{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.container div{
-  display: flex;
-  flex-direction: column;
-}
-
-.container input{
   width: 100%;
-  font-size: 20px;
-  padding: 10px;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid black;
-}
-
-.container input::placeholder{
-  font-size: 12px;
-  font-style: italic;
-}
-
-button{
-  background-color: purple;
-  border: none;
-  font-size: 20px;
   color: white;
-  border-radius: 5px;
-  padding: 10px;
-  cursor: pointer;
-  margin: 10px 0;
+  text-align: center;
 }
-/* Home Page Styles */
+
+.container h1 {
+  margin-bottom: 1.5rem;
+}
+
+.container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.container input {
+  padding: 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.container input:focus {
+  border-color: #4299e1;
+  outline: none;
+}
+
+.container input::placeholder {
+  font-style: italic;
+  font-size: 14px;
+}
+
+/* Button Styles */
+button {
+  background: #4299e1;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Home Page Layout */
 .home-container {
   max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
 }
 
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Account Actions */
 .account-actions {
-  margin: 30px 0;
   padding: 20px;
-  background: #f5f5f5;
+  background: #f9fafb;
   border-radius: 8px;
+  margin-bottom: 2rem;
 }
 
 .username-form {
   display: flex;
   gap: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 }
 
 .username-form input {
   flex: 1;
-  padding: 8px 12px;
+  padding: 10px;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 16px;
 }
 
-.action-buttons {
+/* Buttons for User Management */
+.update-btn { background: #38a169; }
+.delete-btn { background: #e53e3e; }
+.logout-btn { background: #718096; }
+
+/* Task Creation Form */
+.task-form {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.task-form form {
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.update-btn {
-  background: #2c974b;
-  padding: 8px 16px;
+.task-form input,
+.task-form textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
 }
 
-.delete-btn {
-  background: #dc3545;
-  padding: 8px 16px;
+.task-form textarea {
+  resize: vertical;
+  min-height: 100px;
 }
 
-.logout-btn {
-  background: #6c757d;
-  padding: 8px 16px;
-}
-
-.products-list {
+/* Task List */
+.tasks-list {
   margin-top: 30px;
 }
 
-.product-item {
-  padding: 10px;
-  margin: 5px 0;
-  background: #fff;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+/* Individual Task Styling */
+.task-item {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 16px 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.task-item.completed {
+  background: #f0fff4;
+  opacity: 0.9;
+  text-decoration: line-through;
+}
+
+/* Task Content */
+.task-content h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.task-content p {
+  font-size: 16px;
+  color: #4a5568;
+  margin-bottom: 8px;
+}
+
+.task-status {
+  font-size: 14px;
+  font-style: italic;
+  color: #718096;
+}
+
+/* Task Actions */
+.task-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.task-actions button {
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.edit-btn { background-color: #3182ce; color: white; }
+.status-btn { background-color: #38a169; color: white; }
+.delete-btn { background-color: #e53e3e; color: white; }
+.cancel-btn { background-color: #718096; color: white; }
+.save-btn { background-color: #805ad5; color: white; }
+.create-btn { background-color: #2b6cb0; color: white; }
+
+.task-actions button:hover {
+  transform: scale(1.05);
+}
+
+/* Empty State */
+.no-tasks {
+  text-align: center;
+  color: #718096;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  font-style: italic;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #1a202c;
+  color: white;
+}
+
+.dark-mode .container {
+  background: #2d3748;
+  color: white;
+}
+
+.dark-mode input,
+.dark-mode textarea {
+  background-color: #2d3748;
+  color: white;
+  border-color: #4a5568;
+}
+
+.dark-mode .task-item {
+  background: #2d3748;
+  color: white;
+}
+
+.dark-mode .task-content p,
+.dark-mode .task-status {
+  color: #e2e8f0;
 }
