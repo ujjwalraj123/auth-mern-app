@@ -10,11 +10,18 @@ function Home() {
     const [newTask, setNewTask] = useState({ title: '', description: '' });
     const [newUsername, setNewUsername] = useState('');
     const navigate = useNavigate();
+    const [isDarkMode, setIsDarkMode] = useState(false);
 
     useEffect(() => {
         setLoggedInUser(localStorage.getItem('loggedInUser'));
         fetchTasks();
     }, []);
+
+
+    const toggleTheme = () => {
+        setIsDarkMode(!isDarkMode);
+        document.body.classList.toggle('dark-mode', !isDarkMode);
+      };
 
     const fetchTasks = async () => {
         try {
@@ -132,6 +139,9 @@ function Home() {
             <header className="home-header">
                 <h1>Welcome {loggedInUser}</h1>
                 <div className="header-actions">
+                    <button onClick={toggleTheme} style={{ marginRight: '10px' }}>
+                    {isDarkMode ? '🌞' : '🌙'}
+                    </button>
                     <button 
                         onClick={handleDeleteAccount}
                         className="delete-btn"
