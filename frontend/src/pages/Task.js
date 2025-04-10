@@ -8,7 +8,7 @@ const Task = ({ task, fetchTasks }) => {
 
   const handleUpdate = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/tasks/${task._id}`, {
+      const response = await fetch(`https://auth-mern-app-delta.vercel.app/tasks/${task._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ const Task = ({ task, fetchTasks }) => {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/tasks/${task._id}`, {
+      const response = await fetch(`https://auth-mern-app-delta.vercel.app/tasks/${task._id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -52,7 +52,7 @@ const Task = ({ task, fetchTasks }) => {
 
   const toggleStatus = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/tasks/${task._id}/done`, {
+      const response = await fetch(`https://auth-mern-app-delta.vercel.app/tasks/${task._id}/done`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`

@@ -18,7 +18,7 @@ function Home() {
 
     const fetchTasks = async () => {
         try {
-            const response = await fetch('http://localhost:8080/tasks', {
+            const response = await fetch('https://auth-mern-app-delta.vercel.app/tasks', {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 }
@@ -38,7 +38,7 @@ function Home() {
     const createTask = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:8080/tasks/create', {
+            const response = await fetch('https://auth-mern-app-delta.vercel.app/tasks/create', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ function Home() {
         if (!confirmDelete) return;
 
         try {
-            const response = await fetch('http://localhost:8080/auth/delete-account', {
+            const response = await fetch('https://auth-mern-app-delta.vercel.app/auth/delete-account', {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -104,7 +104,7 @@ function Home() {
         }
 
         try {
-            const response = await fetch('http://localhost:8080/auth/change-username', {
+            const response = await fetch('https://auth-mern-app-delta.vercel.app/auth/change-username', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
