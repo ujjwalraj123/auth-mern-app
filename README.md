@@ -8,6 +8,7 @@ A full-stack MERN application with user authentication and task management featu
 ## 🔗 Demo Links
 - **Live Application:** https://auth-mern-app-rmhb.vercel.app/
 - **Backend API:** https://auth-mern-app-1p4n.onrender.com
+- **Demo Video:** [Download Demo Video](https://github.com/ujjwalraj123/auth-mern-app/raw/main/Demo/Demo.mp4) (Right-click → Save Link As)
 
 ## ✨ Features
 - User Authentication (Signup/Login)
